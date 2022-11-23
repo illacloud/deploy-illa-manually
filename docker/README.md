@@ -7,6 +7,11 @@ Deploy All-in-One docker Image
 Build illa utils all-in-one image and run it on your machine.  
 You can check out the scripts file which in [scripts](./scripts/) folder for more details.
 
+Note:
+
+We highly recommended deploying with our auto-deploy tools [illa-cli](https://github.com/illacloud/illa).
+
+
 # Index
 
 - [Desc](#desc)
