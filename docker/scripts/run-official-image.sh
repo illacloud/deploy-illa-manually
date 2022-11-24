@@ -7,7 +7,7 @@ PG_VOLUMN=${ILLA_HOME_DIR}/database/postgresql
 API_SERVER_ADDRESS=localhost
 WEBSOCKET_SERVER_ADDRESS=localhost
 WEBSOCKER_PORT=8000
-
+WSS_ENABLED=false
 
 
 # init
@@ -25,6 +25,7 @@ docker run -d \
     -e API_SERVER_ADDRESS=$API_SERVER_ADDRESS \
     -e WEBSOCKET_SERVER_ADDRESS=$WEBSOCKET_SERVER_ADDRESS \
     -e WEBSOCKER_PORT=$WEBSOCKER_PORT \
+    -e WSS_ENABLED=$WSS_ENABLED \
     -v $PG_VOLUMN:/var/lib/postgresql/data \
     -p 5432:5432 \
     -p 80:80 \

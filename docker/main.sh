@@ -1,5 +1,13 @@
 #!/usr/bin/dumb-init /bin/bash
 
+echo 
+echo '////////////////////////////////////////////////////////////////'
+echo '           Running ILLA BUILDER All-in-One Image                '
+echo '////////////////////////////////////////////////////////////////'
+echo 
+
+sleep 2
+
 /opt/illa/config-init.sh
 
 /opt/illa/database/postgres-init.sh &
