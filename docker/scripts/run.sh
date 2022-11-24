@@ -5,6 +5,7 @@ PG_PASS=mysecretpassword
 ILLA_HOME_DIR=/var/lib/illa
 PG_VOLUMN=${ILLA_HOME_DIR}/database/postgresql
 API_SERVER_ADDRESS=localhost
+API_SERVER_PORT=9999
 WEBSOCKET_SERVER_ADDRESS=localhost
 WEBSOCKER_PORT=8000
 WSS_ENABLED=false
@@ -23,6 +24,7 @@ docker run -d \
     -e GIN_MODE=release \
     -e PGDATA=/var/lib/postgresql/data/pgdata \
     -e API_SERVER_ADDRESS=$API_SERVER_ADDRESS \
+    -e API_SERVER_PORT=$API_SERVER_PORT \
     -e WEBSOCKET_SERVER_ADDRESS=$WEBSOCKET_SERVER_ADDRESS \
     -e WEBSOCKER_PORT=$WEBSOCKER_PORT \
     -e WSS_ENABLED=$WSS_ENABLED \
