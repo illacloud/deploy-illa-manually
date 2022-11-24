@@ -20,6 +20,7 @@ _main() {
     if [ ! -n "$API_SERVER_ADDRESS" ]; then
         echo "API_SERVER_ADDRESS not defined, skip."
     else
+        echo 'config API_SERVER_ADDRESS to:'$API_SERVER_ADDRESS''
         sed -i "s/localhost/$API_SERVER_ADDRESS/g" /opt/illa/illa-builder/assets/*.js
     fi
 
