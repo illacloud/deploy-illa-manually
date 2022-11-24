@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+echo 
+echo '////////////////////////////////////////////////////////////////'
+echo '                   Running ILLA Frontend  Image                 '
+echo '////////////////////////////////////////////////////////////////'
+echo 
+
 /opt/illa/illa-frontend-config-init.sh
 
 nginx &
