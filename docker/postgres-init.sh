@@ -212,6 +212,8 @@ ALTER TABLE set_states
 alter table set_states
     owner to illa;
 
+INSERT INTO users (id, nickname, password_digest, email, language, is_subscribed, created_at, updated_at, uid) VALUES (DEFAULT, 'root', '$2a$10$iVIxJRgy1K6RIV389AYg3OiMIbuDyuCIja1xrHGkCljdg/6gdmWXa', 'root', 1, false, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, DEFAULT);
+
 EOF
 
     echo
