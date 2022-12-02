@@ -34,7 +34,6 @@ API_SERVER_ADDRESS=your_server_ip_address
 
 # builder-backend websocket server serve address
 WEBSOCKET_SERVER_ADDRESS=your_server_ip_address
-
 ```
 
 # Run Official Image
@@ -53,6 +52,7 @@ or just execute:
 
 this command will pull illasoft official image and run it on your docker environment.
 
+And Login with default username **```root```** and password **```password```**.
 
 # Build Image Manually and Run
 

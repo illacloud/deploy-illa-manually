@@ -33,3 +33,4 @@ cd docker;
 ```
 
 
+And Login with default username **```root```** and password **```password```**.
