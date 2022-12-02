@@ -5,6 +5,9 @@ deploy-illa-manually
 
 Deploy illa utils manually. Docker, docker compose and k8s are all avaliable in this repo.  
 
+Note:
+
+We highly recommended deploying with our auto-deploy tools [illa-cli](https://github.com/illacloud/illa).
 
 
 
@@ -18,8 +21,9 @@ Deploy illa utils manually. Docker, docker compose and k8s are all avaliable in 
 
 
 
-
 # Quick Start
+
+
 
 Try our new feature with:
 

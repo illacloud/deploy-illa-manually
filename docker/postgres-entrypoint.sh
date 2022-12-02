@@ -296,9 +296,6 @@ _main() {
 	echo 'Running postgres-entrypoint.sh'
     local user; user="$(id -u)"
     echo "now user is: ${user}"
-    ls -alh /var/lib/
-    ls -alh /var/lib/postgresql
-    ls -alh /var/lib/postgresql/data
 
 	# if first arg looks like a flag, assume we want to run postgres server
 	if [ "${1:0:1}" = '-' ]; then

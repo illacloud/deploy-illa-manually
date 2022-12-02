@@ -13,6 +13,7 @@ services:
     image: "illasoft/illa-frontend:latest"
     environment:
     - API_SERVER_ADDRESS=localhost
+    - API_SERVER_PORT=9999
     - RELEASE_VERSION=TESTONLY
     networks:
       - frontend-tier
