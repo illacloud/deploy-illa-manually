@@ -18,12 +18,10 @@ And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 * [Docker All-in-One Image](./docker/README.md)
 * [Docker Compose](./docker-compose/README.md)
 * [Kubernetes](./kubernetes/README.md)
-
+* [Known Issues](./known-issues/known-issues.md)
 
 
 # Quick Start
-
-
 
 Try our new feature with:
 
