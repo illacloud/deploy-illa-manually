@@ -57,7 +57,7 @@ or just execute:
 
 this command will pull illasoft official slim image and run it on your docker environment.
 
-And Login with default username **```root```** and password **```password```**.
+And Login with default username **```root```**, email **```root@test.com```** and password **```password```**.
 
 # Build Slim Image Manually and Run
 
