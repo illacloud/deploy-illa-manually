@@ -11,6 +11,7 @@ Note:
 
 We highly recommended deploying with our auto-deploy tools [illa-cli](https://github.com/illacloud/illa).
 
+And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 
 
 # Index

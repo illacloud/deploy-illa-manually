@@ -28,6 +28,7 @@ services:
       - ILLA_PG_ADDR=illa-database
       - WEBSOCKET_SERVER_ADDRESS=localhost
       - WEBSOCKER_PORT=8000
+      - ILLA_DEPLOY_MODE='self-host'
     networks:
       - frontend-tier
       - backend-tier
