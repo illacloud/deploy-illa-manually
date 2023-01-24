@@ -11,19 +11,20 @@ RUN git clone https://github.com/illa-family/illa-builder.git /opt/illa/illa-bui
 RUN git submodule init; \
     git submodule update;
 
-RUN whereis yarn
+RUN npm install -g pnpm
+RUN whereis pnpm
 RUN whereis node
 
 ## check yarn config
 RUN yarn config list
 
 ## build 
-RUN yarn install
-RUN yarn build-self
+RUN pnpm install
+RUN pnpm build-self
 
 # ---------------------
 # build builder-backend
-FROM golang:1.17-bullseye as builder-for-backend
+FROM golang:1.19-bullseye as builder-for-backend
 
 ## set env
 ENV LANG C.UTF-8

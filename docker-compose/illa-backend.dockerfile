@@ -1,6 +1,6 @@
 # ---------------------
 # build illa-backend
-FROM golang:1.17-bullseye as builder-for-backend
+FROM golang:1.19-bullseye as builder-for-backend
 
 ## set env
 ENV LANG C.UTF-8

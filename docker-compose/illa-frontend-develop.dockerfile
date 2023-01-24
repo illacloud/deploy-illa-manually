@@ -11,13 +11,14 @@ RUN git clone -b develop https://github.com/illa-family/illa-builder.git /opt/il
 RUN git submodule init; \
     git submodule update;
 
-RUN whereis yarn
+RUN npm install -g pnpm
+RUN whereis pnpm
 RUN whereis node
 
 ## build 
 
-RUN yarn install
-RUN yarn build-cloud
+RUN pnpm install
+RUN pnpm build-self
 
 
 # -------------------
