@@ -48,7 +48,7 @@ or just execute:
 
 this command will pull illasoft official slim image and deploy it on your kubernetes cluster.
 
-And Login with default username **```root```** and password **```password```**.
+Signup and login. Note that the cloud deploy mode (docker compose, k8s) does not have the default login user "root" for security reasons.
 
 # For Database Persistent Storage
 

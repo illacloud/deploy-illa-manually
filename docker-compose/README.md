@@ -57,7 +57,7 @@ or just execute:
 
 this command will pull illasoft official slim image and run it on your docker environment.
 
-And Login with default username **```root```** and password **```password```**.
+Signup and login. Note that the cloud deploy mode (docker compose, k8s) does not have the default login user "root" for security reasons.
 
 # Build Slim Image Manually and Run
 
