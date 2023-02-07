@@ -87,6 +87,7 @@ create table if not exists apps
     name                     varchar(200)                      not null, /* 200 character */
     release_version          bigint                            not null, 
     mainline_version         bigint                            not null, 
+    config                   jsonb,
     created_at               timestamp                         not null,
     created_by               bigint                            not null,
     updated_at               timestamp                         not null,
