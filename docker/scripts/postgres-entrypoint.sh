@@ -216,7 +216,7 @@ docker_setup_db() {
 # Loads various settings that are used elsewhere in the script
 # This should be called before any other functions
 docker_setup_env() {
-	file_env 'POSTGRES_PASSWORD'
+	file_env 'POSTGRES_PASSWORD' 'postgres'
 
 	file_env 'POSTGRES_USER' 'postgres'
 	file_env 'POSTGRES_DB' "$POSTGRES_USER"
@@ -296,6 +296,9 @@ _main() {
 	echo 'Running postgres-entrypoint.sh'
     local user; user="$(id -u)"
     echo "now user is: ${user}"
+    ls -alh /var/lib/
+    ls -alh /var/lib/postgresql
+    ls -alh /var/lib/postgresql/data
 
 	# if first arg looks like a flag, assume we want to run postgres server
 	if [ "${1:0:1}" = '-' ]; then
