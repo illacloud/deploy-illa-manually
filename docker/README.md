@@ -18,25 +18,11 @@ And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 
 - [Desc](#desc)
 - [Index](#index)
-- [Config the Server Address](#config-the-server-address)
 - [Run Official Image](#run-official-image)
 - [Build Image Manually and Run](#build-image-manually-and-run)
 - [Stop and Remove Container](#stop-and-remove-container)
 - [Clean Postgres Database File](#clean-postgres-database-file)
 - [Config Runtime Environment Variables](#config-runtime-environment-variables)
-
-
-# Config the Server Address
-
-If you deploy illa on a server or virtual machine (non-localhost environment), please replace the following config in ```scripts/run-official-image.sh``` and ```scripts/run.sh```.
-
-```sh
-# builder-backend api server serve address
-API_SERVER_ADDRESS=your_server_ip_address
-
-# builder-backend websocket server serve address
-WEBSOCKET_SERVER_ADDRESS=your_server_ip_address
-```
 
 # Run Official Image
 
@@ -112,13 +98,5 @@ ILLA_HOME_DIR=/var/lib/illa
 
 # postgres database file storage folder
 PG_VOLUMN=${ILLA_HOME_DIR}/database/postgresql
-
-# builder-backend api server serve address
-API_SERVER_ADDRESS=localhost
-
-# builder-backend websocket server serve address
-WEBSOCKET_SERVER_ADDRESS=localhost
-
-# builder-backend websocket server serve port
-WEBSOCKER_PORT=8000
+DRIVE_VOLUMN=${ILLA_HOME_DIR}/drive
 ```

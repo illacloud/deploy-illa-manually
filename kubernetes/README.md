@@ -4,7 +4,7 @@ Deploy Docker Image by Docker Compose
 
 # Desc
 
-Build illa utils slim image and run it by docker compose on your machine.  
+Build illa all-in-one image and run it by k8s on your machine.  
 You can check out the scripts file which in [scripts](./scripts/) folder for more details.
 
 Note:
@@ -25,15 +25,6 @@ And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 
 # Run with official slim image
 
-Config your server address in: 
-
-- [illa-frontend.yaml](illa-frontend.yaml) 
-- [illa-backend.yaml](illa-backend.yaml)
-- [illa-backend-ws.yaml](illa-backend-ws.yaml)
-
-
-replace the ```API_SERVER_ADDRESS```, ```WEBSOCKET_SERVER_ADDRESS``` with your server ingress address or domain.
-
 Install GNU make and type: 
 
 ```sh
@@ -46,13 +37,11 @@ or just execute:
 /bin/bash scripts/deploy.sh
 ```
 
-this command will pull illasoft official slim image and deploy it on your kubernetes cluster.
-
-Signup and login. Note that the cloud deploy mode (docker compose, k8s) does not have the default login user "root" for security reasons.
+this command will pull illasoft official all-in-one image and deploy it on your kubernetes cluster.
 
 # For Database Persistent Storage
 
-Edit [illa-database.yaml](illa-database.yaml), add your IAAS persistent storage config on it.
+Edit [illa-builder.yaml](illa-builder.yaml), add your IAAS persistent storage config on it.
 
 
 # For HTTPS Config
@@ -78,30 +67,14 @@ static_resources:
           route_config:
             name: local_route
             virtual_hosts:
-            - name: illa_frontend
+            - name: illa_builder
               domains:
               - "illa.yourdomian.com" # replace with your domain
               routes:
               - match:
                   prefix: "/"
                 route:
-                  cluster: illa_frontend
-            - name: illa_backend
-              domains:
-              - "illa-api.yourdomian.com" # replace with your domain
-              routes:
-              - match:
-                  prefix: "/"
-                route:
-                  cluster: illa_backend
-            - name: illa_backend_ws
-              domains:
-              - "illa-ws.yourdomian.com" # replace with your domain
-              routes:
-              - match:
-                  prefix: "/"
-                route:
-                  cluster: illa_backend_ws
+                  cluster: illa_builder
           http_filters:
           - name: envoy.filters.http.router
             typed_config:
@@ -119,42 +92,16 @@ static_resources:
                 filename: /your-cert-folder/privkey.pem
 
   clusters:
-  - name: illa_frontend
+  - name: illa_builder
     type: STRICT_DNS
     lb_policy: ROUND_ROBIN
     connect_timeout: 10s
     load_assignment:
-      cluster_name: illa_frontend
+      cluster_name: illa_builder
       endpoints:
       - lb_endpoints:
         - endpoint:
             address:
               socket_address:
-                address: illa-frontend
+                address: illa-builder
                 port_value: 80
-  - name: illa_backend
-    type: STRICT_DNS
-    lb_policy: ROUND_ROBIN
-    connect_timeout: 10s
-    load_assignment:
-      cluster_name: illa_backend
-      endpoints:
-      - lb_endpoints:
-        - endpoint:
-            address:
-              socket_address:
-                address: illa-backend
-                port_value: 9999
-  - name: illa_backend_ws
-    type: STRICT_DNS
-    lb_policy: ROUND_ROBIN
-    connect_timeout: 10s
-    load_assignment:
-      cluster_name: illa_backend_ws
-      endpoints:
-      - lb_endpoints:
-        - endpoint:
-            address:
-              socket_address:
-                address: illa-backend-ws
-                port_value: 8000
