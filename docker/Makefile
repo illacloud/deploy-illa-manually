@@ -3,7 +3,7 @@
 all: build run
 
 build:
-	/bin/bash scripts/build.sh
+	/bin/bash build-scripts/build.sh
 
 run-official-image:
 	/bin/bash deploy-scripts/run-official-image.sh
