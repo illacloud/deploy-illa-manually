@@ -7,7 +7,7 @@ How to Use My Own External Postgres Database as Datastore for Illa-Builder?
 This document is for the user who wants to use their own postgres database as a datastore for illa-builder.
 
 
-## Database DML 
+## Database DDL 
 
 Connect to your own postgres database and run the following SQL to create the database and table. 
 
