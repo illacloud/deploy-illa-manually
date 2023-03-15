@@ -20,6 +20,11 @@ And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 * [Known Issues](./known-issues/known-issues.md)
 
 
+# Tips
+* [How to Connect My Postgres Database in Resource?](#how-to-connect-my-postgres-database-in-resource.md)
+* [How to Use My Own External Postgres Database as Datastore for Illa-Builder?](#how-to-use-my-own-external-postgres-databaseas-datastore-for-illa-builder.md)
+
+
 # Quick Start
 
 Try our new feature with:
@@ -30,4 +35,4 @@ cd docker;
 ```
 
 
-And Login with default username **```root```** and password **```password```**.
+And Login with default username **```root```** and password **```password```** (self-host mode only).
