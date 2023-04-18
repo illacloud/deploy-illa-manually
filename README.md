@@ -17,6 +17,7 @@ And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 * [Quick Start](#quick-start)
 * [Docker All-in-One Image](./docker/README.md)
 * [Kubernetes](./kubernetes/README.md)
+* [How to Build Your Own Illa Units](./build-by-yourself/README.md)
 * [Known Issues](./known-issues/known-issues.md)
 
 
@@ -27,12 +28,10 @@ And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 
 # Quick Start
 
-Try our new feature with:
+Just type:
 
 ```sh
-cd docker;
-/bin/bash ./scripts/run-official-image.sh;
+docker run -d --name illa-builder -p 80:80 illasoft/illa-builder:latest 
 ```
 
-
-And Login with default username **```root```** and password **```password```** (self-host mode only).
+And Login with default username **```root```** and password **```password```** (self-host mode (docker all-in-one image) only).

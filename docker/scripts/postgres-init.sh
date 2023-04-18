@@ -336,7 +336,7 @@ alter table unit_role_relations owner to illa_supervisor;
 INSERT INTO teams ( 
     id, uid, name, identifier, icon, permission, created_at, updated_at
 ) SELECT
-    0, '00000000-0000-0000-0000-000000000000', 'my-team'    , '0'  , 'https://illa.s3.ap-northeast-1.amazonaws.com/illa-cloud/people.png', '{"allowEditorInvite": true, "allowViewerInvite": true, "inviteLinkEnabled": true, "allowEditorManageTeamMember": true, "allowViewerManageTeamMember": true}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+    0, '00000000-0000-0000-0000-000000000000', 'my-team'    , '0'  , 'https://cdn.illacloud.com/email-template/people.png', '{"allowEditorInvite": true, "allowViewerInvite": true, "inviteLinkEnabled": true, "allowEditorManageTeamMember": true, "allowViewerManageTeamMember": true}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
 WHERE NOT EXISTS (
     SELECT id FROM teams WHERE id = 0
 );
