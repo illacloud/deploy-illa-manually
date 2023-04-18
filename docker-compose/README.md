@@ -4,7 +4,7 @@ Deploy All-in-One docker Image by Docker Compose
 
 # Desc
 
-This documents 
+This documents describe how to deploy illa units with docker compose.
 
 Note:
 
