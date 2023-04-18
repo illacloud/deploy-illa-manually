@@ -1,0 +1,16 @@
+# illa-builder 
+
+version: "3.9"
+
+services:
+  illa-builder:
+    container_name: illa-builder
+    restart: always
+    image: "illasoft/illa-builder:latest"
+    environment:
+    - GIN_MODE=release
+    - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+      - "80:80"
+    volumes:
+      - ./data:/var/lib/postgresql/data 
