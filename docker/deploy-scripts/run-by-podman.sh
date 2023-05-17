@@ -12,6 +12,7 @@ mkdir -p ${ILLA_HOME_DIR}
 mkdir -p ${PG_VOLUMN}
 mkdir -p ${DRIVE_VOLUMN}
 chmod 0777 ${PG_VOLUMN} # @todo: chmod for MacOS, the gid is "wheel", not "root". and we will fix this later.
+chmod 0777 ${DRIVE_VOLUMN} # @todo: chmod for MacOS, the gid is "wheel", not "root". and we will fix this later.
 
 # run
 podman run -d \
