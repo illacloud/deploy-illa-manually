@@ -9,8 +9,13 @@ services:
     image: "illasoft/illa-builder:latest"
     environment:
     - GIN_MODE=release
-    - PGDATA=/var/lib/postgresql/data/pgdata
+    - PGDATA=/var/lib/postgresql/data/pgdata 
     ports:
       - "80:80"
     volumes:
-      - ./data:/var/lib/postgresql/data 
+      - illa_database:/var/lib/postgresql/data:rw
+      - illa_drive:/opt/illa/drive:rw
+
+volumes:
+  illa_database:
+  illa_drive:
