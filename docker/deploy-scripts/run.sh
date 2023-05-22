@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # config here
-ILLA_HOME_DIR=/var/lib/illa
-PG_VOLUMN=${ILLA_HOME_DIR}/database/postgresql
+ILLA_HOME_DIR=~/illa
+PG_VOLUMN=${ILLA_HOME_DIR}/database
 DRIVE_VOLUMN=${ILLA_HOME_DIR}/drive
 
 
@@ -11,18 +11,17 @@ DRIVE_VOLUMN=${ILLA_HOME_DIR}/drive
 mkdir -p ${ILLA_HOME_DIR}
 mkdir -p ${PG_VOLUMN}
 mkdir -p ${DRIVE_VOLUMN}
-chmod 0777 ${PG_VOLUMN} # @todo: chmod for MacOS, the gid is "wheel", not "root". and we will fix this later.
-chmod 0777 ${DRIVE_VOLUMN} # @todo: chmod for MacOS, the gid is "wheel", not "root". and we will fix this later.
 
 # run
 docker run -d \
     --name illa-builder \
-    -e GIN_MODE=release \
-    -e PGDATA=/var/lib/postgresql/data/pgdata \
-    -v $PG_VOLUMN:/var/lib/postgresql/data \
+    -v $PG_VOLUMN:/opt/illa/database \
     -v $DRIVE_VOLUMN:/opt/illa/drive \
     -p 80:80 \
     illa-builder:latest 
+
+
+
 
 
 

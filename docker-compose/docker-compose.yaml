@@ -7,13 +7,10 @@ services:
     container_name: illa-builder
     restart: always
     image: "illasoft/illa-builder:latest"
-    environment:
-    - GIN_MODE=release
-    - PGDATA=/var/lib/postgresql/data/pgdata 
     ports:
       - "80:80"
     volumes:
-      - illa_database:/var/lib/postgresql/data:rw
+      - illa_database:/opt/illa/database:rw
       - illa_drive:/opt/illa/drive:rw
 
 volumes:
