@@ -43,6 +43,9 @@ this command will pull illasoft official all-in-one image and deploy it on your 
 
 Edit [illa-builder.yaml](illa-builder.yaml), add your IAAS persistent storage config on it.
 
+The database mount point at ```/opt/illa/database```.
+
+The object storage mount point at ```/opt/illa/drive```.
 
 # For HTTPS Config
 
