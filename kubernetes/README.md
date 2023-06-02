@@ -11,19 +11,16 @@ Note:
 
 We highly recommended deploying with our auto-deploy tools [illa-cli](https://github.com/illacloud/illa).
 
-And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
-
-
 # Index
 
 - [Desc](#desc)
 - [Index](#index)
-- [Run with official slim image](#run-with-official-slim-image)
+- [Run with official image](#run-with-official-image)
 - [For Database Persistent Storage](#for-database-persistent-storage)
 - [For HTTPS Config](#for-https-config)
 
 
-# Run with official slim image
+# Run with official image
 
 Install GNU make and type: 
 
@@ -107,4 +104,7 @@ static_resources:
             address:
               socket_address:
                 address: illa-builder
-                port_value: 80
+                port_value: 2022
+```
+
+that's all.

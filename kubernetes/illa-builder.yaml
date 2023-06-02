@@ -21,7 +21,7 @@ spec:
         imagePullPolicy: Always
         name: illa-builder
         ports:
-        - containerPort: 80
+        - containerPort: 2022
         env:
         - name: ILLA_DEPLOY_MODE
           value: "self-host"
@@ -34,8 +34,8 @@ metadata:
   name: illa-builder
 spec:
   ports:
-    - port: 80
-      targetPort: 80
+    - port: 2022
+      targetPort: 2022
       protocol: TCP
   type: NodePort
   selector:
