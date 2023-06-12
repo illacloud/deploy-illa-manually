@@ -73,13 +73,12 @@ bash./deploy-scripts/clean-postgres-database-file.sh
 Edit ```scripts/run.sh``` when necessary:
 
 ```sh
-# postgres database password
-PG_PASS=mysecretpassword
+# base home dir
+ILLA_HOME_DIR=~/illa
 
-# repo home dir
-ILLA_HOME_DIR=/var/lib/illa
+# dir for postgres database folder
+PG_VOLUMN=${ILLA_HOME_DIR}/database
 
-# postgres database file storage folder
-PG_VOLUMN=${ILLA_HOME_DIR}/database/postgresql
+# dir for minio object storage (now just for user avatar)
 DRIVE_VOLUMN=${ILLA_HOME_DIR}/drive
 ```
