@@ -14,11 +14,11 @@ mkdir -p ${DRIVE_VOLUMN}
 
 # run
 docker run -d \
-    --name illa-builder \
+    --name illa_builder_local \
     -v $PG_VOLUMN:/opt/illa/database \
     -v $DRIVE_VOLUMN:/opt/illa/drive \
     -p 80:2022 \
-    illa-builder:latest 
+    illa-builder:local 
 
 
 

@@ -292,13 +292,19 @@ _pg_want_help() {
 	return 1
 }
 
+_pg_remove_postmaster_pid_file() {
+	if [ -f "$PGDATA/postmaster.pid" ]; then
+    	echo "postmaster.pid exists. remove it."
+		rm -f $PGDATA/postmaster.pid
+	fi
+}
+
 _main() {
 	echo 'Running postgres-entrypoint.sh'
     local user; user="$(id -u)"
-    echo "now user is: ${user}"
-    ls -alh /var/lib/
-    ls -alh /var/lib/postgresql
-    ls -alh /var/lib/postgresql/data
+
+	# check postmasterfile if docker image exit was unexpected
+	_pg_remove_postmaster_pid_file
 
 	# if first arg looks like a flag, assume we want to run postgres server
 	if [ "${1:0:1}" = '-' ]; then

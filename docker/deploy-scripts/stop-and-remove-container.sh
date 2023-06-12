@@ -4,8 +4,8 @@ echo
 echo 'stop and remove illa-builder.'
 echo
 
-docker stop illa-builder
-docker rm illa-builder
+docker stop illa_builder_local
+docker rm illa_builder_local
 
 echo 
 echo 'done.'

@@ -27,12 +27,6 @@ We highly recommended deploying with our auto-deploy tools [illa-cli](https://gi
 Install GNU make and type: 
 
 ```sh
-make run-official-image
-```
-
-or just execute:
-
-```sh
 /bin/bash scripts/run-official-image.sh
 ```
 
@@ -52,20 +46,11 @@ For build illa all-in-one image and run, type:
 make all
 ```
 
-for podman, type:
-
-```sh
-make run-by-podman
-```
-
-or execute shell scripts ```run-by-podman.sh``` in scripts folder.
-
-
 # Stop and Remove Container
 
 
 ```sh
-make stop-and-remove-container
+make rm-local
 ```
 
 
@@ -74,12 +59,12 @@ make stop-and-remove-container
 *** THIS COMMAND WILL DELETE DATABSE FILE ON YOUR DISK!!! ***  
 *** BACKUP, AND DO IT CAREFULLY ***  
 
-In Default, the postgres database will storage in ```/var/lib/illa/database/postgresql/``` folder.
+In Default, the postgres database will storage in ```~/illa-database``` folder.
 
 Run follow command for delete it.
 
 ```sh
-make clean-postgres-database-file
+bash./deploy-scripts/clean-postgres-database-file.sh
 ```
 
 

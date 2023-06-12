@@ -1,6 +1,25 @@
 #!/usr/bin/env bash
 set -Eeo pipefail
 
+# define color output
+BLACK='\033[0;30m'     
+DARKGRAY='\033[1;30m'
+RED='\033[0;31m'     
+LIGHTRED='\033[1;31m'
+GREEN='\033[0;32m'     
+LIGHTGREEN='\033[1;32m'
+ORANGE='\033[0;33m'           
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'     
+LIGHTBLUE='\033[1;34m'
+PURPLE='\033[0;35m'     
+LIGHTPURPLE='\033[1;35m'
+CYAN='\033[0;36m'     
+LIGHTCYAN='\033[1;36m'
+LIGHTGRAY='\033[0;37m'      
+WHITE='\033[1;37m'
+NC='\033[0m' # No Color
+
 # check to see if this file is being run or sourced from another script
 _is_sourced() {
 	# https://unix.stackexchange.com/a/215279
@@ -15,13 +34,26 @@ _main() {
 
 
 echo 
-echo '[postgres-init.sh] init illa_builder & illa_supervisor database.'
+echo -e "${LIGHTBLUE}[postgres-init.sh] init illa_builder & illa_supervisor database.${NC}"
 echo 
 
-# waitting for postgres init finished 
-# it should be over 18s, pre-postgres.sh will cost at least 18s on MacOS. 
-sleep 20 
 
+# check if postgres really starting
+RETRIES=5
+until psql -U postgres postgres -c "select 1" > /dev/null 2>&1 || [ $RETRIES -eq 0 ]; do
+  echo "Waiting for postgres server, $((RETRIES--)) remaining attempts..."
+  sleep 5
+done
+
+if [ $RETRIES -eq 0 ]; then
+    echo -e "${RED}[FATAL] CAN NOT CONNECT TO POSTGERS DATABASE, PLEASE CHECK YOUR DATABASE INIT STATUS AND FOLDER PERMISSIONS.${NC}"
+    return 1
+fi
+
+# ok, init database and table.
+echo 
+echo -e "${LIGHTBLUE}init database.${NC}"
+echo 
 psql -U postgres postgres <<EOF
 
 -- init illa_builder
@@ -336,7 +368,7 @@ alter table unit_role_relations owner to illa_supervisor;
 INSERT INTO teams ( 
     id, uid, name, identifier, icon, permission, created_at, updated_at
 ) SELECT
-    0, '00000000-0000-0000-0000-000000000000', 'my-team'    , '0'  , 'https://cdn.illacloud.com/email-template/people.png', '{"allowEditorInvite": true, "allowViewerInvite": true, "inviteLinkEnabled": true, "allowEditorManageTeamMember": true, "allowViewerManageTeamMember": true}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+    0, '83cfb484-0a3f-4bfd-aab3-70432d021cab', 'my-team'    , '0'  , 'https://cdn.illacloud.com/email-template/people.png', '{"allowEditorInvite": true, "allowViewerInvite": true, "inviteLinkEnabled": true, "allowEditorManageTeamMember": true, "allowViewerManageTeamMember": true}', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
 WHERE NOT EXISTS (
     SELECT id FROM teams WHERE id = 0
 );
@@ -345,7 +377,7 @@ WHERE NOT EXISTS (
 INSERT INTO users (
     uid, nickname, password_digest, email, avatar, sso_config, customization, created_at, updated_at
 ) SELECT 
-    '00000000-0000-0000-0000-000000000000', 
+    '158504d6-a47d-43a0-879e-79a57981cecc', 
     'root', 
     '\$2a\$10\$iVIxJRgy1K6RIV389AYg3OiMIbuDyuCIja1xrHGkCljdg/6gdmWXa'::text, 
     'root', 
@@ -372,7 +404,7 @@ WHERE NOT EXISTS (
 EOF
 
 echo
-echo '[postgres-init.sh] init illa_builder database done.'
+echo -e "${LIGHTBLUE}[postgres-init.sh] init illa_builder database done.${NC}"
 echo
 
 }

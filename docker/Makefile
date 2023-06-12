@@ -1,21 +1,17 @@
-.PHONY: all build run run-by-podman stop-and-remove-container clean-postgres-database-file
+.PHONY: all build-local init-local run-local clean
 
-all: build run
+all: build-local init-local run-local
 
-build:
-	/bin/bash build-scripts/build.sh
+build-local:
+	docker build ./ -f ./Dockerfile -t illa-builder:local
 
-run-official-image:
-	/bin/bash deploy-scripts/run-official-image.sh
+init-local:
+	mkdir -p ~/illa/database; mkdir -p ~/illa/drive;
 
-run:
-	/bin/bash deploy-scripts/run.sh
+run-local:
+	docker run -d -p 80:2022 --name illa_builder_local -v ~/illa/database:/opt/illa/database -v ~/illa/drive:/opt/illa/drive illasoft/illa-builder:local
 
-run-by-podman:
-	/bin/bash deploy-scripts/run-by-podman.sh
+rm-local:
+	docker stop illa_builder_local; docker rm illa_builder_local;
 
-stop-and-remove-container:
-	/bin/bash deploy-scripts/stop-and-remove-container.sh
-
-clean-postgres-database-file:
-	/bin/bash deploy-scripts/clean-postgres-database-file.sh
+ 	
