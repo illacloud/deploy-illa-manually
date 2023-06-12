@@ -23,7 +23,7 @@ Then config the docker run command and run it.
 ```bash
 docker run -d \
     --name illa-builder \
-    -p 8081:80 \
+    -p 80:2022 \
     -e ILLA_PG_ADDR={your_pg_server} \
     -e ILLA_PG_PORT=5433 \
     -e ILLA_PG_USER=illa_builder \
@@ -34,7 +34,7 @@ docker run -d \
     -e ILLA_SUPERVISOR_PG_USER=illa_supervisor \
     -e ILLA_SUPERVISOR_PG_PASSWORD=illa2022 \
     -e ILLA_SUPERVISOR_PG_DATABASE=illa_supervisor \
-    illasoft/illa-builder:develop 
+    illasoft/illa-builder:latest 
 ```
 
 That's it.

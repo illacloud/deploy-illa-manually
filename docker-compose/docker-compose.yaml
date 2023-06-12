@@ -8,7 +8,7 @@ services:
     restart: always
     image: "illasoft/illa-builder:latest"
     ports:
-      - "80:80"
+      - "80:2022"
     volumes:
       - illa_database:/opt/illa/database:rw
       - illa_drive:/opt/illa/drive:rw
