@@ -31,7 +31,8 @@ And for the moment we do not support Apple Silicon M1 (darwin-arm64 arch).
 Just type:
 
 ```sh
-docker run -d --name illa-builder -p 80:80 illasoft/illa-builder:latest 
+mkdir -p ~/illa/database; mkdir -p ~/illa/drive; 
+docker run -d -p 80:2022 --name illa_builder -v ~/illa/database:/opt/illa/database -v ~/illa/drive:/opt/illa/drive illasoft/illa-builder:latest
 ```
 
 And Login with default username **```root```** and password **```password```** (self-host mode (docker all-in-one image) only).
