@@ -83,7 +83,9 @@ create table if not exists apps (
     created_at              timestamp                       not null,
     created_by              bigint                          not null,
     updated_at              timestamp                       not null,
-    updated_by              bigint                          not null
+    updated_by              bigint                          not null,
+    edited_by               jsonb
+
 );
 
 alter table apps owner to illa_builder;
