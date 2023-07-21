@@ -90,6 +90,20 @@ create table if not exists apps (
 
 alter table apps owner to illa_builder;
 
+-- app_snapshots
+create table if not exists app_snapshots (
+    id                      bigserial                       not null primary key,
+    uid                     uuid default gen_random_uuid()  not null,
+    team_id                 bigserial                       not null, 
+    app_ref_id              bigserial                       not null,
+    target_version          bigint                          not null,
+    trigger_mode            smallint                        not null,
+    modify_history          jsonb,                           
+    created_at              timestamp                       not null
+);
+
+alter table app_snapshots owner to illa_builder;
+
 -- resource
 create table if not exists resources (
     id                      bigserial                       not null primary key,
