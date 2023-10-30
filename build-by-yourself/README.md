@@ -1,4 +1,4 @@
-How to Build Your Own Illa Units 
+How to Build Your Own ILLA Units 
 --------------------------------
 
 
@@ -23,7 +23,7 @@ Illa consists of the following parts (called by illa unit):
 
 - [illa-builder](https://github.com/illacloud/illa-builder) (as frontend)
 - [builder-backend](https://github.com/illacloud/builder-backend) (as illa builder backend API service)
-- [illa-supervisor-backend](https://github.com/illacloud/illa-supervisor-backend) (for auth, account management, RBAC etc.)
+- [illa-supervisor-backend](https://github.com/illacloud/illa-supervisor-backend) (for auth, account management, ABAC etc.)
 
 
 
