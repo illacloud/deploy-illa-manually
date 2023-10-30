@@ -32,3 +32,7 @@ echo 'installing docker-ce.'
 echo ''
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+docker info
+
+echo 'DONE!'
