@@ -24,6 +24,9 @@ Then config the docker run command and run it.
 docker run -d \
     --name illa-builder \
     -p 80:2022 \
+    -e PGHOST={your_pg_server}
+    -e PGUSER={your_default_pg_user | postgres}
+    -e PGPASSWORD={your_default_pg_password}
     -e ILLA_PG_ADDR={your_pg_server} \
     -e ILLA_PG_PORT=5433 \
     -e ILLA_PG_USER=illa_builder \
